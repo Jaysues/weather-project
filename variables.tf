@@ -1,7 +1,7 @@
 variable "bucket" {
   type        = string
   description = "Specifies the name of an S3 Bucket"
-  default     = "jaysues-pathways-dojo"
+  default     = "jaysues-pathways-dojo-content"
 }
 
 variable "tags" {
