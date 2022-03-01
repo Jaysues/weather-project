@@ -144,7 +144,7 @@ The `modules` folder allows you to organise your `.tf` files are called by `main
 <br>
 
 ### TF State Files
-AWS S3 is used to host the TF state files. This is hosted by s3://pathways-dojo. You will need to update the name of the state file in the `meta.tf` file replacing `<username>` with your username.
+AWS  S3 is used to host the TF state files. This is hosted by s3://pathways-dojo. You will need to update the name of the state file in the `meta.tf` file replacing `<username>` with your username.
 
 ```
 terraform {
