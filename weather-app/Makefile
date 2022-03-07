@@ -6,7 +6,7 @@ export REPO_NAME
 
 .PHONY: build_docker
 build_docker: 
-	docker build -t $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(USER_NAME)-$(REPO_NAME):1 -f ../weather-app/$(DOCKERFILE) .
+	docker build -t $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):1 -f ../weather-app/$(DOCKERFILE) .
 
 .PHONY: login_ecr
 login_ecr: 
@@ -14,4 +14,4 @@ login_ecr:
 
 .PHONY: push_image
 push_image: 
-	docker push $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(USER_NAME)-$(REPO_NAME):1
+	docker push $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):1
