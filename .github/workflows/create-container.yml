@@ -6,8 +6,6 @@ name: create_container
     paths:
       - '.github/workflows/create_container.yml'
       - './weather-app/'
-
-
 jobs:
   docker_image_build:
     defaults:
