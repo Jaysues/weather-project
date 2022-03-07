@@ -1,5 +1,4 @@
 DOCKERFILE = weather-app-dockerfile
-export USER_NAME
 export ACCOUNT_ID
 export AWS_REGION 
 export REPO_NAME 
