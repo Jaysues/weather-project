@@ -1,5 +1,4 @@
 name: create_container
-on:
   workflow_dispatch:
   push:
     branches:
@@ -15,7 +14,7 @@ jobs:
       run:
         working-directory: ./
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # environment:
     #   name: approval
     env:
