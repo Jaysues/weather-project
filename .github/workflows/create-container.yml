@@ -11,7 +11,7 @@ jobs:
   docker_image_build:
     defaults:
       run:
-        working-directory: ./weather-project/weather-app
+        working-directory: ./weather-app
     runs-on: ubuntu-latest
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # environment:
