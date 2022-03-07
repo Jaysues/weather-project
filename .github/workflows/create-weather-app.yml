@@ -12,16 +12,16 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/create_weather_app.yml'
+      - '.github/workflows/create-weather-app.yml'
       - './weather-app/'
 jobs:
   docker_image_build:
     defaults:
       run:
-        working-directory: ./weather-project
+        working-directory: ./weather-app
     runs-on: ubuntu-latest
     env:
-      STAGE_FILE: "docker-compose.weather-app.yml"
+      STAGE_FILE: "docker-compose.container.yml"
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
