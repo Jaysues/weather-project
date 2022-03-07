@@ -1,10 +1,12 @@
-name: Deploy
+name: create_container
 on:
   workflow_dispatch:
   push:
     branches:
       - main
     paths:
+      - '.github/workflows/create_container.yml'
+      - './weather-app/'
       - 'docker-compose.yml'
       - 'Makefile'
       - '.github/workflows/**'
@@ -13,22 +15,30 @@ on:
       - '**.tf'
 jobs:
   terraform_plan:
+    defaults:
+      run:
+        working-directory: ./
     runs-on: ubuntu-latest
     env:
+      USERNAME: ${{ secrets.USERNAME }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_SESSION_TOKEN:  ${{ secrets.AWS_SESSION_TOKEN }} 
     steps:
     - uses: actions/checkout@v2
     - name: Terraform_Plan
-      run: make run_plan       
+      run: make run_plan
 
   terraform_apply:
+    defaults:
+      run:
+        working-directory: ./
     environment:
       name: approval
     needs: terraform_plan
     runs-on: ubuntu-latest
     env:
+      USERNAME: ${{ secrets.USERNAME }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_SESSION_TOKEN:  ${{ secrets.AWS_SESSION_TOKEN }} 
@@ -37,8 +47,4 @@ jobs:
     - name: Terraform_Plan
       run: make run_plan
     - name: Terraform_Apply
-      run: make run_apply  
-
-
-
-
+      run: make run_apply

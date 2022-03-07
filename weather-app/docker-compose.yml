@@ -1,0 +1,7 @@
+version: '3'
+services:
+  tf:
+    build: ./
+    image: contino/terraform
+    working_dir: /opt/app
+    env_file: .env
