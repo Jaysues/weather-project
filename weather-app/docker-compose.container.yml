@@ -3,5 +3,5 @@ services:
   tf:
     volumes:
       - type: bind
-        source: ./
+        source: ../weather-app
         target: /opt/app
