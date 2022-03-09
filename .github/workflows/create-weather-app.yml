@@ -1,6 +1,9 @@
 name: create_weather_app
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
   workflow_run:
     workflows:
       - "create_container"
@@ -8,9 +11,6 @@ on:
       - master
     types:
       - completed
-  push:
-    branches:
-      - master
     paths:
       - '.github/workflows/create-weather-app.yml'
       - './weather-app/'

@@ -153,7 +153,7 @@ terraform {
     bucket = "pathways-dojo"
     key    = <username>-tfstate
     region = "us-east-1"
-  }
+  } 
 }
 ```
 
