@@ -159,7 +159,7 @@ terraform {
 
 ## Node Weather App
 
-The simple weather forecast application using Node.js.
+The simple weather forecast application using Node.js. 
 Link: https://github.com/phattp/nodejs-weather-app
 
 ### Getting Started
