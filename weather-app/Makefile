@@ -13,4 +13,6 @@ login_ecr:
 
 .PHONY: push_image
 push_image: 
-	docker push $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):1
+	docker push $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):jaysuesv1
+.PHONY: destroy_image
+	aws ecr batch-delete-image --repository-name $(REPO_NAME) --image-ids imageTag=jaysuesv1

@@ -1,12 +1,12 @@
-name: create_container
+name: destroy
 on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - destroy
     paths:
-      - '.github/workflows/create_container.yml'
-      - './weather-app/*'
+      - '.github/workflows/destroy-image.yml'
+      - './weather-app/'
 jobs:
   docker_image_build:
     defaults:
@@ -21,12 +21,9 @@ jobs:
       ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
       REPO_NAME: ${{ secrets.REPO_NAME }}
-      USERNAME: ${{ secrets.USERNAME }}
     steps:
     - uses: actions/checkout@v2
     - name: Log into ECR
       run: make login_ecr
-    - name: Create Docker image
-      run: make build_docker
-    - name: Push Docker image
-      run: make push_image
+    - name: Destroy Docker image
+      run: make destroy_image
