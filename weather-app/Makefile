@@ -5,7 +5,7 @@ export REPO_NAME
 
 .PHONY: build_docker
 build_docker: 
-	docker build -t $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):1 -f ../weather-app/$(DOCKERFILE) .
+	docker build -t $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):jaysuesv1 -f ../weather-app/$(DOCKERFILE) .
 
 .PHONY: login_ecr
 login_ecr: 
